@@ -6,9 +6,7 @@ import { WhatsAppButton } from "@/app/components/WhatsAppButton";
 import { tours } from "@/lib/tours";
 
 export default function Home() {
-  const heroImage =
-    "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80";
-
+  const heroImage = "backgr.jpg";
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)]">
       <Navbar />

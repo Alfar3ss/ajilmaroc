@@ -8,7 +8,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <Link href="/" className="text-xl font-semibold tracking-tight">
-              AjilMaroc
+              <span>AjilMaroc</span>
             </Link>
             <p className="text-sm leading-6 text-[rgba(255,255,255,0.8)]">
               Authentic Morocco tours with private local guides. Premium experiences, genuine encounters, and unforgettable memories.

@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AjilMaroc | Morocco Private Tours",
   description: "Premium Morocco tours with private local guides, authentic experiences, and fast booking support.",
+  icons: {
+    icon: "/lgo.png",
+    shortcut: "/lgo.png",
+    apple: "/lgo.png",
+  },
 };
 
 export default function RootLayout({

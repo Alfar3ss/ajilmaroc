@@ -19,8 +19,9 @@ export function Navbar() {
     <>
       <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-surface)]/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <Link href="/" className="text-lg font-semibold tracking-tight text-[var(--color-primary)]">
-            AjilMaroc
+          <Link href="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-[var(--color-primary)]">
+            <img src="/lgo.png" alt="AjilMaroc" className="h-10 w-10" />
+            <span>AjilMaroc</span>
           </Link>
           <nav className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
