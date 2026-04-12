@@ -1,5 +1,4 @@
 import { BookingForm } from "@/app/components/BookingForm";
-import { Navbar } from "@/app/components/Navbar";
 import { StickyMobileBooking } from "@/app/components/StickyMobileBooking";
 import { TourCard } from "@/app/components/TourCard";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
@@ -9,7 +8,6 @@ export default function Home() {
   const heroImage = "backgr.jpg";
   return (
     <div className="min-h-screen bg-[var(--color-background)] text-[var(--color-text-primary)]">
-      <Navbar />
       <main className="relative overflow-hidden">
         <section
           id="top"

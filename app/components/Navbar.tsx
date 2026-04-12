@@ -14,6 +14,7 @@ const navItems = [
 
 export function Navbar() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <>
@@ -21,8 +22,10 @@ export function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <Link href="/" className="flex items-center gap-3 text-lg font-semibold tracking-tight text-[var(--color-primary)]">
             <img src="/lgo.png" alt="AjilMaroc" className="h-10 w-10" />
-            <span>AjilMaroc</span>
+            <span className="hidden sm:inline">AjilMaroc</span>
           </Link>
+          
+          {/* Desktop Navigation */}
           <nav className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
               <Link
@@ -34,13 +37,58 @@ export function Navbar() {
               </Link>
             ))}
           </nav>
+
+          {/* Desktop Book Button */}
           <button
             onClick={() => setIsBookingModalOpen(true)}
-            className="inline-flex items-center rounded-2xl bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-hover)]"
+            className="hidden sm:inline-flex items-center rounded-2xl bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-hover)]"
           >
             Book Now
           </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="inline-flex md:hidden items-center justify-center p-2 rounded-lg text-[var(--color-text-secondary)] hover:bg-[var(--color-background)]"
+          >
+            {isMobileMenuOpen ? (
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
+
+        {/* Mobile Slide Menu */}
+        {isMobileMenuOpen && (
+          <nav className="border-t border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-4 md:hidden">
+            <div className="flex flex-col gap-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-sm font-medium text-[var(--color-text-secondary)] transition hover:text-[var(--color-primary)]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <button
+                onClick={() => {
+                  setIsBookingModalOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="mt-2 w-full inline-flex items-center justify-center rounded-2xl bg-[var(--color-accent)] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[var(--color-accent-hover)]"
+              >
+                Book Now
+              </button>
+            </div>
+          </nav>
+        )}
       </header>
 
       {/* Booking Modal */}

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/app/components/Navbar";
 import { StickyMobileBooking } from "@/app/components/StickyMobileBooking";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
 import { tours } from "@/lib/tours";
@@ -12,7 +11,6 @@ export default async function TourDetailPage({ params }: { params: Promise<{ slu
 
   return (
     <div className="min-h-screen bg-[var(--color-background)]">
-      <Navbar />
       <main className="px-6 py-12 pb-12 lg:px-8 md:pb-12">
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="overflow-hidden rounded-[1.5rem] shadow-soft">

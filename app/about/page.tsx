@@ -1,12 +1,10 @@
 import Link from "next/link";
-import { Navbar } from "@/app/components/Navbar";
 import { StickyMobileBooking } from "@/app/components/StickyMobileBooking";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-[var(--color-background)]">
-      <Navbar />
       <main className="px-6 py-12 pb-12 lg:px-8">
         <div className="mx-auto max-w-6xl space-y-16">
           {/* Hero Section */}

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Navbar } from "@/app/components/Navbar";
 import { StickyMobileBooking } from "@/app/components/StickyMobileBooking";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
 import { tours } from "@/lib/tours";
@@ -86,7 +85,6 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-[var(--color-background)]">
-      <Navbar />
       <main className="px-6 py-12 pb-12 lg:px-8">
         <div className="mx-auto max-w-7xl space-y-12">
           <section className="space-y-4 text-center">
