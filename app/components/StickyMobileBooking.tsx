@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export function StickyMobileBooking() {
   const [isVisible, setIsVisible] = useState(true);
@@ -20,12 +21,12 @@ export function StickyMobileBooking() {
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
-        <a
+        <Link
           href="/#booking"
           className="flex-1 rounded-2xl bg-[var(--color-accent)] px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-[var(--color-accent-hover)]"
         >
           Book Now
-        </a>
+        </Link>
       </div>
     </div>
   );

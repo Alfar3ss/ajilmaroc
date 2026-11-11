@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
+import { SITE_URL } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AjilMaroc | Morocco Private Tours",
-  description: "Premium Morocco tours with private local guides, authentic experiences, and fast booking support.",
+  metadataBase: new URL(SITE_URL),
+  title: "AjilMaroc | Morocco Tours",
+  description: "Explore Morocco through Sahara Desert tours, multi-day itineraries and day trips from Marrakech.",
   icons: {
     icon: "/lgo.png",
     shortcut: "/lgo.png",
@@ -36,6 +38,17 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "AjilMaroc",
+              url: SITE_URL,
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
         <Navbar />
         {children}
         <Footer />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { StickyMobileBooking } from "@/app/components/StickyMobileBooking";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
 import { tours } from "@/lib/tours";
@@ -10,6 +11,7 @@ interface GalleryImage {
   alt: string;
   title: string;
   category: string;
+  href?: string;
 }
 
 const galleryImages: GalleryImage[] = [
@@ -17,45 +19,34 @@ const galleryImages: GalleryImage[] = [
   ...tours.map((tour) => ({
     src: tour.image,
     alt: tour.title,
-    title: tour.title,
+    title: tour.displayTitle,
     category: tour.category,
+    href: `/tour/${tour.slug}`,
   })),
   // Additional Gallery Images
   {
     src: "https://images.squarespace-cdn.com/content/v1/61952f8dd5af670b10e518a7/1663090877624-857YDRCFRHLMIXAR6H4M/pexels-boris-ulzibat-5614643.jpg?format=750w",
-    alt: "Sahara Desert Dunes",
-    title: "Sahara Desert",
+    alt: "Desert landscape in Morocco",
+    title: "Morocco desert landscape",
     category: "merzouga",
   },
   {
     src: "https://images.squarespace-cdn.com/content/v1/61952f8dd5af670b10e518a7/1663093701352-EEUQ0PD3KH1EX6EPONLD/pexels-piotr-arnoldes-6441180.jpg?format=750w",
-    alt: "Jemaa el-Fnaa Square in Marrakech",
-    title: "Jemaa el-Fnaa Square",
+    alt: "A public square in Marrakech",
+    title: "Marrakech city scene",
     category: "marrakech",
   },
   {
     src: "https://images.squarespace-cdn.com/content/v1/61952f8dd5af670b10e518a7/1663101443239-BZD3U5M433A2CW7K5FQ1/pexels-taryn-elliott-3889827.jpg?format=750w",
-    alt: "Traditional shops in Essaouira",
-    title: "Essaouira Traditional Shops",
-    category: "daytrip",
-  },
-  {
-    src: "https://goadventuresmorocco.com/gam/DSC06915.jpg",
-    alt: "Agafay Desert landscape",
-    title: "Agafay Desert",
+    alt: "Shops in a Moroccan coastal town",
+    title: "Morocco coastal-town shops",
     category: "daytrip",
   },
   {
     src: "https://images.squarespace-cdn.com/content/v1/61952f8dd5af670b10e518a7/1664970120042-8TMJOIPK0MJOET8T02FC/32C29136-3AF0-4AC1-BCE8-A491F7FCBDE6.jpg",
-    alt: "Sahara Desert experience",
-    title: "Sahara Desert Experience",
+    alt: "Desert landscape in Morocco",
+    title: "Morocco desert experience",
     category: "merzouga",
-  },
-  {
-    src: "https://goadventuresmorocco.com/gam/27A0EBE3-D9DF-4EC3-818A-7EB65BD703CA.jpg",
-    alt: "Morocco adventure",
-    title: "Morocco Adventure",
-    category: "morocco",
   },
 ];
 
@@ -90,10 +81,10 @@ export default function GalleryPage() {
           <section className="space-y-4 text-center">
             <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-secondary)]">Photo gallery</p>
             <h1 className="text-4xl font-semibold text-[var(--color-primary)] sm:text-5xl">
-              Morocco Through Our Lens
+              Morocco Tour Photos – Experiences Across Morocco
             </h1>
             <p className="mx-auto max-w-2xl text-base leading-8 text-[var(--color-text-secondary)]">
-              Explore the breathtaking beauty of Morocco captured during our authentic tours and adventures.
+              Browse photographs associated with Morocco’s desert landscapes, cities and day-trip destinations. Select a tour image to view its itinerary.
             </p>
           </section>
 
@@ -116,25 +107,41 @@ export default function GalleryPage() {
 
           {/* Gallery Grid */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filteredImages.map((image, index) => (
-              <div
-                key={index}
-                className="group relative cursor-pointer overflow-hidden rounded-[1rem] shadow-soft transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
-                onClick={() => openModal(image)}
+            {filteredImages.map((image) => (
+              <article
+                key={`${image.src}-${image.title}`}
+                className="group overflow-hidden rounded-[1rem] bg-[var(--color-surface)] shadow-soft transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.12)]"
               >
                 <div className="aspect-square overflow-hidden">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                  />
+                  {image.href ? (
+                    <Link href={image.href} aria-label={`View ${image.title} tour`}>
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                    </Link>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => openModal(image)}
+                      className="block h-full w-full cursor-zoom-in"
+                      aria-label={`Enlarge ${image.title} photograph`}
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                    </button>
+                  )}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100">
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="text-lg font-semibold text-white">{image.title}</h3>
-                  </div>
+                <div className="p-4">
+                  <h3 className="text-sm font-semibold text-[var(--color-primary)]">{image.title}</h3>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
@@ -170,7 +177,7 @@ export default function GalleryPage() {
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold text-white">Ready to create your own memories?</h2>
               <p className="mx-auto max-w-2xl text-base text-[rgba(255,255,255,0.85)]">
-                Join our tours and experience the magic of Morocco firsthand.
+                Browse the tour pages for destinations, durations and itinerary details.
               </p>
               <a
                 href="/tours"

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useEffect, useState } from "react";
 import { tours } from "@/lib/tours";
 
 const initialState = {
@@ -24,6 +24,19 @@ const tourCategories = [
 export function BookingForm() {
   const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("tour");
+    const selectedTour = tours.find((tour) => tour.slug === slug);
+
+    if (selectedTour) {
+      setForm((currentForm) => ({
+        ...currentForm,
+        tourCategory: selectedTour.category,
+        tour: selectedTour.title,
+      }));
+    }
+  }, []);
 
   const getToursForCategory = (category: string) => {
     if (category === "personalized") return [];
@@ -176,10 +189,14 @@ export function BookingForm() {
         {status === "sending" ? "Sending..." : "Send Booking Request"}
       </button>
       {status === "success" && (
-        <p className="rounded-2xl bg-emerald-100 p-4 text-sm text-emerald-900">Your request has been sent. We will contact you within 2Hours.</p>
+        <p className="rounded-2xl bg-emerald-100 p-4 text-sm text-emerald-900" role="status">
+          Your request was sent. AjilMaroc will follow up to discuss availability and details.
+        </p>
       )}
       {status === "error" && (
-        <p className="rounded-2xl bg-rose-100 p-4 text-sm text-rose-900">Something went wrong. Please try again later.</p>
+        <p className="rounded-2xl bg-rose-100 p-4 text-sm text-rose-900" role="alert">
+          Something went wrong. Please try again later.
+        </p>
       )}
     </form>
   );

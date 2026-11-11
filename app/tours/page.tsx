@@ -5,13 +5,13 @@ import Link from "next/link";
 import { StickyMobileBooking } from "@/app/components/StickyMobileBooking";
 import { TourCard } from "@/app/components/TourCard";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
-import { tours, type Tour } from "@/lib/tours";
+import { tours } from "@/lib/tours";
 
 const categories = [
   { id: "all", label: "All Tours" },
-  { id: "merzouga", label: "Merzouga Desert Tours" },
-  { id: "morocco", label: "Tours Around Morocco" },
-  { id: "daytrip", label: "Day Trips near Marrakech" },
+  { id: "merzouga", label: "Marrakech to Merzouga Sahara Desert Tours" },
+  { id: "morocco", label: "Private Multi-Day Morocco Tours" },
+  { id: "daytrip", label: "Day Trips from Marrakech" },
 ] as const;
 
 type CategoryType = (typeof categories)[number]["id"];
@@ -19,18 +19,18 @@ type CategoryType = (typeof categories)[number]["id"];
 const categorySections = [
   {
     id: "merzouga",
-    title: "Merzouga Desert Tours",
-    description: "Experience the magic of the Sahara with camel treks and desert camps.",
+    title: "Marrakech to Merzouga Sahara Desert Tours",
+    description: "Compare two-, three- and four-day desert itineraries. Check each tour page for the currently published route and ask for confirmation of inclusions.",
   },
   {
     id: "morocco",
-    title: "Tours Around Morocco",
-    description: "Explore diverse regions from coastal towns to imperial cities.",
+    title: "Private Multi-Day Morocco Tours",
+    description: "Review the listed multi-day itineraries and request a full route and overnight-stop plan before booking.",
   },
   {
     id: "daytrip",
-    title: "Day Trips near Marrakech",
-    description: "Perfect for short stays—discover the best experiences near Marrakech.",
+    title: "Day Trips from Marrakech",
+    description: "Browse the listed Ouzoud, Essaouira and Agafay day trips and confirm transport, timing and activity details for your dates.",
   },
 ] as const;
 
@@ -51,10 +51,10 @@ export default function ToursPage() {
           <section className="space-y-4 text-center">
             <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-secondary)]">Explore our tours</p>
             <h1 className="text-4xl font-semibold text-[var(--color-primary)] sm:text-5xl">
-              Discover Morocco through expert local guides.
+              Private Morocco Tours, Sahara Desert Trips &amp; Day Trips
             </h1>
             <p className="mx-auto max-w-2xl text-base leading-8 text-[var(--color-text-secondary)]">
-              Pick the experience that fits your travel style and let us handle the rest.
+              Explore Sahara trips to Merzouga, multi-day itineraries and day trips from Marrakech. Compare destinations and durations, then confirm current arrangements directly with AjilMaroc.
             </p>
           </section>
 
@@ -81,7 +81,7 @@ export default function ToursPage() {
               {categorySections.map((section) => {
                 const sectionTours = tours.filter((tour) => tour.category === section.id);
                 return (
-                  <section key={section.id} className="space-y-6">
+                  <section key={section.id} id={section.id} className="space-y-6 scroll-mt-24">
                     <div>
                       <h2 className="text-3xl font-semibold text-[var(--color-primary)]">{section.title}</h2>
                       <p className="mt-2 text-base text-[var(--color-text-secondary)]">{section.description}</p>
@@ -113,7 +113,7 @@ export default function ToursPage() {
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold text-white">Ready to book your adventure?</h2>
               <p className="mx-auto max-w-2xl text-base text-[rgba(255,255,255,0.85)]">
-                Join thousands of travelers who've discovered authentic Morocco with AjilMaroc.
+                Share your travel dates and preferences to ask about available tours and current pricing.
               </p>
               <Link
                 href="/#booking"

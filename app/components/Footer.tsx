@@ -11,7 +11,7 @@ export function Footer() {
               <span>AjilMaroc</span>
             </Link>
             <p className="text-sm leading-6 text-[rgba(255,255,255,0.8)]">
-              Authentic Morocco tours with private local guides. Premium experiences, genuine encounters, and unforgettable memories.
+              Morocco tours, Sahara Desert journeys to Merzouga, multi-day itineraries and day trips from Marrakech.
             </p>
             <div className="flex space-x-4">
               <a
@@ -65,10 +65,10 @@ export function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider">Our Tours</h3>
             <ul className="space-y-2">
               {[
-                { label: "Merzouga Desert Tours", href: "/tours?category=merzouga" },
-                { label: "Morocco Road Trips", href: "/tours?category=morocco" },
-                { label: "Day Trips from Marrakech", href: "/tours?category=daytrip" },
-                { label: "Private Guided Tours", href: "/tours" },
+                { label: "Marrakech to Merzouga Tours", href: "/tours#merzouga" },
+                { label: "Multi-Day Morocco Tours", href: "/tours#morocco" },
+                { label: "Day Trips from Marrakech", href: "/tours#daytrip" },
+                { label: "Browse all Morocco tours", href: "/tours" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link

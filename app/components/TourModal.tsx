@@ -81,7 +81,7 @@ export function TourModal({ tour, isOpen, onClose }: TourModalProps) {
               <p className="text-base leading-7 text-[var(--color-text-secondary)]">{tour.description}</p>
 
               <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-[var(--color-primary)]">What's Included:</h3>
+                <h3 className="text-lg font-semibold text-[var(--color-primary)]">What&apos;s Included:</h3>
                 <ul className="space-y-2">
                   {tour.details.map((detail, index) => (
                     <li key={index} className="flex items-center gap-3">
@@ -178,7 +178,7 @@ export function TourModal({ tour, isOpen, onClose }: TourModalProps) {
 
                 {status === "success" && (
                   <p className="rounded-2xl bg-emerald-100 p-4 text-sm text-emerald-900">
-                    Your booking request has been sent! We'll contact you within 30 minutes.
+                    Your booking request has been sent. AjilMaroc will follow up to discuss availability and details.
                   </p>
                 )}
                 {status === "error" && (

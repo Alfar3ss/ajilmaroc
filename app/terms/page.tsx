@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { StickyMobileBooking } from "@/app/components/StickyMobileBooking";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata(
+  "Terms of Service | AjilMaroc",
+  "Read the terms published for AjilMaroc website use and tour booking enquiries.",
+  "/terms",
+);
 
 export default function TermsPage() {
   return (
@@ -29,7 +36,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-semibold text-[var(--color-primary)] mb-4">2. Description of Service</h2>
               <p>
-                AjilMaroc provides premium private tours and travel experiences in Morocco. Our services include desert tours, cultural experiences, day trips, and personalized travel arrangements. All tours are conducted by licensed local guides and follow international safety standards.
+                AjilMaroc&apos;s website lists desert tours, multi-day itineraries, day trips, and personalized travel arrangements. Confirm the guide arrangements, services and safety information for your specific itinerary before booking.
               </p>
             </section>
 

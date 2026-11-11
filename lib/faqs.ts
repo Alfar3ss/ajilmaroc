@@ -1,57 +1,118 @@
 export type FAQ = {
   question: string;
   answer: string;
+  link?: { href: string; label: string; external?: boolean };
 };
 
 export const faqs: FAQ[] = [
   {
     question: "What is included in the tour price?",
     answer:
-      "Our tour prices include professional local guide services, all transportation in Morocco, meals as specified in the itinerary, accommodation in premium riads or desert camps, and all entrance fees. Flights to Morocco are not included unless specified.",
+      "Inclusions vary by itinerary, and the website does not list a complete inclusion breakdown for every tour. Ask for a written quote showing what is included and any additional costs before booking.",
   },
   {
     question: "What is the best time to visit Morocco?",
     answer:
-      "The best time to visit is April to May (spring) or September to October (fall). These months offer pleasant weather for outdoor activities. Summer (June-August) is hot, while winters are mild but some mountain passes may be inaccessible.",
+      "Weather varies by region and season. Spring and autumn are often considered comfortable periods for visiting many destinations, but check conditions for your specific route and travel dates.",
   },
   {
     question: "Do I need a visa to visit Morocco?",
     answer:
-      "Visa requirements depend on your nationality. Citizens of EU countries, US, Canada, and many others can stay visa-free for up to 90 days. We recommend checking with your local Moroccan embassy for specific requirements.",
+      "Entry and visa requirements depend on your nationality and circumstances. Check current requirements with an official Moroccan consulate or government travel resource before departure.",
+    link: {
+      href: "https://www.acces-maroc.ma/",
+      label: "Check Morocco’s official eVisa portal",
+      external: true,
+    },
   },
   {
-    question: "What is the physical fitness level required?",
+    question: "What physical fitness level is required?",
     answer:
-      "Our tours range from easy (casual walks in medinas) to moderate (mountain hiking). We clearly specify the difficulty level for each tour. Mountain tours require good fitness, while desert tours are more laid-back. Contact us to discuss your fitness level.",
+      "Walking and activity requirements depend on the tour and activities you choose. Ask AjilMaroc about the expected walking, terrain and physical demands of your specific itinerary.",
   },
   {
     question: "Is it safe to travel in Morocco?",
     answer:
-      "Morocco is generally a safe destination for tourists. We use experienced guides who know the best and safest routes. Petty theft can occur in crowded souks, so we recommend standard travel precautions like securing valuables.",
+      "Conditions can change and vary by location. Review your government’s current travel advice, follow local guidance and take normal precautions with valuables and personal belongings.",
   },
   {
     question: "What currency is used in Morocco?",
     answer:
-      "Morocco uses the Moroccan Dirham (MAD). We recommend carrying a mix of cash and cards. ATMs are widely available in cities, and most restaurants accept cards. Exchange rates are competitive - avoid exchanging money at airports if possible.",
+      "Morocco’s currency is the Moroccan dirham (MAD). Ask your bank about payment and exchange options, and confirm with each provider whether cards are accepted or cash is needed.",
   },
   {
     question: "Can you customize a tour for our group?",
     answer:
-      "Absolutely! We specialize in bespoke tours tailored to your preferences, budget, and schedule. Contact us with your requirements and our team will design a perfect itinerary for your group.",
+      "The tour descriptions invite travelers to discuss itinerary changes. Send your preferred destinations, dates and group size, then confirm the available changes and any price difference before booking.",
   },
   {
     question: "What happens if the tour is cancelled?",
     answer:
-      "We rarely cancel tours, but in case of extreme weather or unforeseen circumstances, we offer full refunds or rescheduling options. Our guides are trained to adapt itineraries while maintaining safety and enjoyment.",
+      "Cancellation terms should be confirmed in writing for your specific booking before you pay. Contact AjilMaroc if the applicable terms are not clear.",
   },
   {
     question: "Do you offer vegetarian or halal meals?",
     answer:
-      "Yes, we accommodate dietary requirements. Please inform us during booking so we can arrange appropriate meals. Moroccan cuisine is very diverse and easily accommodates various dietary preferences.",
+      "Meal arrangements are not specified for every tour. Tell AjilMaroc about dietary requirements in advance and ask for confirmation of what can be arranged and whether it affects the price.",
   },
   {
-    question: "How do we communicate with you before the tour?",
+    question: "How do we communicate before the tour?",
     answer:
-      "We stay in close contact through email, WhatsApp, and phone calls. Our WhatsApp number is available on our website for quick communication and updates. We respond within 30 minutes during business hours.",
+      "You can send an enquiry through the booking form or use the WhatsApp and email contact details shown on this website. Confirm the final itinerary and arrangements in writing.",
+  },
+  {
+    question: "How long does it take to travel from Marrakech to Merzouga?",
+    answer:
+      "Travel time depends on the route, stops and road conditions. Ask AjilMaroc for the expected driving schedule for your selected tour; do not assume the two-, three- and four-day options have the same pace.",
+    link: { href: "/tours#merzouga", label: "Compare Marrakech to Merzouga tours" },
+  },
+  {
+    question: "What is the difference between Merzouga and Agafay?",
+    answer:
+      "Merzouga is associated with the Sahara’s sand dunes and is included in multi-day desert tours. Agafay is a rocky desert landscape near Marrakech, so it offers a different setting and travel plan.",
+    link: { href: "/tour/agafay-desert", label: "See the Agafay Desert experience" },
+  },
+  {
+    question: "Are the desert tours private or shared?",
+    answer:
+      "Some tour descriptions identify their itineraries as private, but this is not stated consistently for every tour. Confirm whether your selected trip is private or shared before booking.",
+    link: { href: "/tours#merzouga", label: "Review the Merzouga tour options" },
+  },
+  {
+    question: "Is the camel ride included?",
+    answer:
+      "A sunset camel ride is mentioned in the descriptions for some Merzouga tours. Ask whether it is included in your quote and what alternatives or extra costs apply.",
+    link: { href: "/tours#merzouga", label: "View Merzouga Desert tours" },
+  },
+  {
+    question: "What type of desert camp is available?",
+    answer:
+      "Some Merzouga descriptions mention an overnight desert camp, but camp facilities and room arrangements are not fully specified. Request details for the exact camp and accommodation included in your quote.",
+    link: { href: "/tours#merzouga", label: "Compare Merzouga tour durations" },
+  },
+  {
+    question: "Are private rooms available?",
+    answer:
+      "Room arrangements are not specified for every itinerary. Ask AjilMaroc to confirm room type, occupancy and any supplement for your travel dates.",
+  },
+  {
+    question: "Can children join the desert tours?",
+    answer:
+      "Age limits and child-specific arrangements are not stated for every tour. Share the children’s ages with AjilMaroc and confirm suitability, transport arrangements and any applicable pricing before booking.",
+  },
+  {
+    question: "Can we choose our pickup location?",
+    answer:
+      "Pickup details are not fully listed for every tour. Ask AjilMaroc to confirm the pickup point and whether a different location can be arranged.",
+  },
+  {
+    question: "What should we pack for a Sahara Desert trip?",
+    answer:
+      "Pack for the season and the activities on your confirmed itinerary. Useful basics may include comfortable walking shoes, sun protection, layers for changing temperatures and any personal medication. Ask for advice based on your travel dates.",
+  },
+  {
+    question: "Can we book a tour at short notice?",
+    answer:
+      "Availability depends on your dates and the arrangements required for the selected tour. Contact AjilMaroc with your travel dates and group size to check.",
   },
 ];

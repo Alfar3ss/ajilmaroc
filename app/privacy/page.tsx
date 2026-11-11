@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { StickyMobileBooking } from "@/app/components/StickyMobileBooking";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata(
+  "Privacy Policy | AjilMaroc",
+  "Read the privacy information published by AjilMaroc about website and tour booking enquiries.",
+  "/privacy",
+);
 
 export default function PrivacyPage() {
   return (
@@ -22,7 +29,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-semibold text-[var(--color-primary)] mb-4">1. Introduction</h2>
               <p>
-                At AjilMaroc ("we," "us," or "our"), we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our tour booking services.
+                At AjilMaroc (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our tour booking services.
               </p>
             </section>
 
@@ -110,7 +117,7 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-[var(--color-primary)] mb-4">9. Children's Privacy</h2>
+              <h2 className="text-2xl font-semibold text-[var(--color-primary)] mb-4">9. Children&apos;s Privacy</h2>
               <p>
                 Our services are not intended for children under 18 years of age. We do not knowingly collect personal information from children under 18. If we become aware that we have collected personal information from a child under 18, we will take steps to delete such information.
               </p>
@@ -119,7 +126,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-2xl font-semibold text-[var(--color-primary)] mb-4">10. Changes to This Privacy Policy</h2>
               <p>
-                We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+                We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date.
               </p>
             </section>
 

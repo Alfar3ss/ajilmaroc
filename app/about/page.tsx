@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { StickyMobileBooking } from "@/app/components/StickyMobileBooking";
 import { WhatsAppButton } from "@/app/components/WhatsAppButton";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata(
+  "About AjilMaroc | Morocco Tours & Sahara Desert Trips",
+  "Learn about AjilMaroc’s listed Morocco tours, Sahara Desert trips to Merzouga and day trips from Marrakech.",
+  "/about",
+);
 
 export default function AboutPage() {
   return (
@@ -12,10 +19,10 @@ export default function AboutPage() {
             <div className="space-y-6">
               <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-secondary)]">About AjilMaroc</p>
               <h1 className="text-4xl font-semibold text-[var(--color-primary)] sm:text-5xl">
-                Authentic Morocco, Reimagined for You
+                About AjilMaroc – Morocco Tours and Excursions
               </h1>
               <p className="max-w-2xl text-base leading-8 text-[var(--color-text-secondary)]">
-                Founded in 2015, AjilMaroc is more than a tour company—we're storytellers, cultural ambassadors, and guides who believe every traveler deserves an experience that touches the soul. Our mission is to show you the real Morocco.
+                AjilMaroc organizes Sahara Desert tours to Merzouga, multi-day Morocco itineraries and day trips from Marrakech. The website lists tour durations and selected itinerary details; ask AjilMaroc to confirm the full route, availability, inclusions and price for your travel dates.
               </p>
             </div>
             <div className="overflow-hidden rounded-[1.5rem] shadow-soft">
@@ -31,14 +38,14 @@ export default function AboutPage() {
           <section className="space-y-10">
             <div className="text-center">
               <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-secondary)]">Our values</p>
-              <h2 className="mt-4 text-3xl font-semibold text-[var(--color-primary)]">What We Stand For</h2>
+              <h2 className="mt-4 text-3xl font-semibold text-[var(--color-primary)]">How to Plan a Tour</h2>
             </div>
             <div className="grid gap-8 lg:grid-cols-3">
               {[
                 {
-                  title: "Authenticity",
+                  title: "Choose an itinerary",
                   description:
-                    "We believe in genuine encounters. No staged experiences, no overcrowded tourist traps. Just real Morocco, real people, and real stories.",
+                    "Browse the listed Sahara Desert tours, multi-day routes and day trips from Marrakech. Each tour page identifies its published duration and known highlights.",
                   icon: (
                     <svg className="h-10 w-10 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -46,9 +53,9 @@ export default function AboutPage() {
                   ),
                 },
                 {
-                  title: "Respect",
+                  title: "Share your travel details",
                   description:
-                    "We honor Morocco's rich culture and local communities. Every tour supports local guides, artisans, and small businesses.",
+                    "Use the booking form to send your preferred tour, dates, group size and questions. Contact AjilMaroc to discuss any itinerary changes.",
                   icon: (
                     <svg className="h-10 w-10 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -56,9 +63,9 @@ export default function AboutPage() {
                   ),
                 },
                 {
-                  title: "Excellence",
+                  title: "Confirm the arrangements",
                   description:
-                    "Premium service without pretension. Comfortable accommodations, delicious meals, and attentive guides who care about your experience.",
+                    "Before paying, request confirmation of the final route, accommodation, transport, activities, inclusions, price and applicable booking terms.",
                   icon: (
                     <svg className="h-10 w-10 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -81,53 +88,24 @@ export default function AboutPage() {
           {/* Story Section */}
           <section className="rounded-[1.5rem] bg-[var(--color-sand)] p-8 shadow-soft sm:p-12">
             <div className="max-w-3xl">
-              <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-terra)]">Our story</p>
-              <h2 className="mt-4 text-3xl font-semibold text-[var(--color-primary)]">How It All Began</h2>
+              <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-terra)]">Our tours</p>
+              <h2 className="mt-4 text-3xl font-semibold text-[var(--color-primary)]">Destinations and trip types</h2>
               <div className="mt-8 space-y-6 text-base leading-8 text-[var(--color-text-secondary)]">
                 <p>
-                  Ajilmaroc wasn't created in an office or from a business plan. It started with a simple feeling—the desire to show Morocco the way it's truly lived.
+                  The current tour collection includes journeys between Marrakech and Merzouga, longer Morocco itineraries listing destinations such as Casablanca, Fes and Chefchaouen, and day trips to Ouzoud, Essaouira and Agafay.
                 </p>
                 <p>
-                  Growing up here, we saw something that many travelers don't notice at first: Morocco is not just a place you visit… it's something you feel.
-                </p>
-                <p>
-                  It's in the quiet mornings of the Atlas Mountains, the warmth of a shared tea, the stories hidden in every street of Marrakech, and the kindness of people who welcome you like family.
-                </p>
-                <p>
-                  But too often, travelers only see the surface. They follow routes, take photos, and leave—without ever connecting to the soul of the place.
-                </p>
-                <p>
-                  That's why Ajilmaroc exists. Not to offer tours, but to create moments that stay with you long after you leave.
-                </p>
-                <p>
-                  Every experience we share is built on something simple: real people, real places, and real stories. No filters. No tourist traps. Just Morocco—honest, vibrant, and unforgettable.
-                </p>
-                <p>
-                  Because we believe travel shouldn't just change your location… it should change the way you see the world.
+                  Some tour pages do not yet provide a complete day-by-day route or a full list of inclusions. Ask for those details in writing so you can compare the itinerary with your dates and travel needs.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Stats Section */}
-          <section className="grid gap-8 rounded-[1.5rem] bg-[var(--color-primary)] p-8 text-white shadow-soft sm:grid-cols-3 sm:p-12">
-            {[
-              { label: "Years of Experience", value: "9+" },
-              { label: "Local Guides Employed", value: "50+" },
-              { label: "Travelers Served", value: "5,000+" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="text-4xl font-semibold sm:text-5xl">{stat.value}</p>
-                <p className="mt-2 text-sm text-[rgba(255,255,255,0.75)]">{stat.label}</p>
-              </div>
-            ))}
-          </section>
-
           {/* CTA Section */}
           <section className="text-center space-y-6">
-            <h2 className="text-3xl font-semibold text-[var(--color-primary)]">Ready to experience authentic Morocco?</h2>
+            <h2 className="text-3xl font-semibold text-[var(--color-primary)]">Ready to plan a Morocco tour?</h2>
             <p className="mx-auto max-w-2xl text-base leading-8 text-[var(--color-text-secondary)]">
-              Join thousands of travelers who've discovered Morocco through our eyes. Let's create your story together.
+              Browse the current itineraries and contact AjilMaroc with your travel dates and questions.
             </p>
             <Link
               href="/tours"
