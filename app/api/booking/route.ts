@@ -57,7 +57,7 @@ async function sendEmails(body: any) {
     await transporter.sendMail({
       from: senderEmail,
       to: receiverEmail,
-      subject: `New booking request: ${body.tour}`,
+      subject: `AjiLMaroc: New Booking ${body.tour}`,
       html: bookingEmailHtml(body),
       replyTo: body.email,
     });
@@ -65,7 +65,7 @@ async function sendEmails(body: any) {
     await transporter.sendMail({
       from: senderEmail,
       to: body.email,
-      subject: `Your booking request for ${body.tour}`,
+      subject: `AjiLMaroc: Your booking request for ${body.tour}`,
       html: confirmationEmailHtml(body),
       replyTo: receiverEmail,
     });
